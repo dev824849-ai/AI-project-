@@ -1,0 +1,71 @@
+@import "tailwindcss";
+@import 'leaflet/dist/leaflet.css';
+@config "../tailwind.config.js";
+
+@theme {
+  --color-polar-950: #060B18;
+  --color-polar-900: #0B132B;
+  --color-polar-850: #111D42;
+  --color-polar-800: #1C2541;
+  --color-polar-750: #2A3B5C;
+  --color-polar-700: #3A506B;
+  --color-polar-600: #5BC0BE;
+  --color-polar-500: #00F0FF;
+  --color-polar-400: #6EE7B7;
+  --color-polar-300: #FDE047;
+  --color-polar-200: #F87171;
+  --color-polar-100: #E0F2FE;
+  --color-polar-50: #F0F9FF;
+}
+
+body {
+  background-color: #060B18;
+  color: #F1F5F9;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Custom Polar Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0B132B;
+}
+::-webkit-scrollbar-thumb {
+  background: #1C2541;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3A506B;
+}
+
+/* Pulse animation for radar status */
+@keyframes radar-pulse {
+  0% { transform: scale(0.95); opacity: 0.8; }
+  50% { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(0.95); opacity: 0.8; }
+}
+
+.animate-radar {
+  animation: radar-pulse 2s infinite ease-in-out;
+}
+
+/* Leaflet fix for dark polar container */
+.leaflet-container {
+  background: #0B132B !important;
+  font-family: inherit;
+  border-radius: 0.5rem;
+}
+.leaflet-popup-content-wrapper {
+  background: #111D42 !important;
+  color: #F0F9FF !important;
+  border: 1px solid #3A506B !important;
+  border-radius: 0.5rem;
+}
+.leaflet-popup-tip {
+  background: #111D42 !important;
+}
